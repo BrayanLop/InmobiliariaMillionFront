@@ -1,0 +1,23 @@
+:root {
+  --color-primario: #0077b6;
+  --color-secundario: #48cae4;
+  --color-fondo: #f8f9fa;
+  --color-texto: #222;
+  --color-footer: #333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+a {
+  color: var(--color-primario);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,36 @@
+.lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem auto 0 auto;
+  max-width: 900px;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .lista {
+    grid-template-columns: 1fr;
+    max-width: 95vw;
+  }
+}
+
+
+.cargando {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #0077b6;
+  margin: 2rem 0;
+}
+
+.error {
+  text-align: center;
+  color: #d90429;
+  font-weight: bold;
+  margin: 2rem 0;
+}
+
+.vacio {
+  text-align: center;
+  color: #555;
+  margin: 2rem 0;
+}

@@ -1,0 +1,13 @@
+@media (max-width: 600px) {
+  .layout {
+    padding: 0 !important;
+  }
+  section {
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+  }
+  .footer {
+    font-size: 0.85rem;
+    padding: 0.7rem 0;
+  }
+}
