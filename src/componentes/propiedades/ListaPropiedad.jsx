@@ -1,5 +1,6 @@
-import React from 'react';
-import TarjetaPropiedad from './TarjetaPropiedad.jsx';
+import React, { useEffect, useState } from 'react';
+import TarjetaPropiedad from './TarjetaPropiedad';
+import { obtenerImagen } from '../../api/imagenpropiedad';
 import styles from './ListaPropiedad.module.css';
 
 /**
@@ -10,6 +11,21 @@ import styles from './ListaPropiedad.module.css';
  * @param {string} props.error - Mensaje de error (opcional)
  */
 function ListaPropiedad({ propiedades, cargando, error }) {
+  const [propiedadesConImagen, setPropiedadesConImagen] = useState([]);
+
+  useEffect(() => {
+    async function cargarImagenes() {
+      const nuevasPropiedades = await Promise.all(
+        propiedades.map(async (propiedad) => {
+          const urlImagen = await obtenerImagen(propiedad.idPropiedad);
+          return { ...propiedad, urlImagen };
+        })
+      );
+      setPropiedadesConImagen(nuevasPropiedades);
+    }
+    cargarImagenes();
+  }, [propiedades]);
+
   if (cargando) {
     return <div className={styles.cargando}>Cargando propiedades...</div>;
   }
@@ -18,14 +34,14 @@ function ListaPropiedad({ propiedades, cargando, error }) {
     return <div className={styles.error}>Error: {error}</div>;
   }
 
-  if (!propiedades || propiedades.length === 0) {
+  if (!propiedadesConImagen || propiedadesConImagen.length === 0) {
     return <div className={styles.vacio}>No se encontraron propiedades.</div>;
   }
 
   return (
     <div className={styles.listaPropiedad}>
-      {propiedades.map(propiedad => (
-        <TarjetaPropiedad key={propiedad.id} propiedad={propiedad} />
+      {propiedadesConImagen.map((propiedad) => (
+        <TarjetaPropiedad propiedad={propiedad} key={propiedad.idPropiedad} />
       ))}
     </div>
   );

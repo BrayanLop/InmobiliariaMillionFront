@@ -6,9 +6,9 @@ function TarjetaPropiedad({ propiedad }) {
   return (
     <Link to={`/propiedad/${propiedad.idPropiedad}`} className={styles.card}>
       <img
-        src="#"
+        src={propiedad.urlImagen || '#'}
         alt={propiedad.nombre}
-        className={styles.imagen}
+        className={styles.imagen} 
       />
       <div className={styles.info}>
         <h3 className={styles.nombre}>{propiedad.nombre}</h3>

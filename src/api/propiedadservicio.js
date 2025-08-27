@@ -12,11 +12,11 @@ const URL_BASE_API = 'https://localhost:7181/api/Propiedad';
 export async function obtenerPropiedades(filtros = {}) {
   try {
     const params = {};
-    if (filtros.nombre) params.name = filtros.nombre;
-    if (filtros.direccion) params.address = filtros.direccion;
-    if (filtros.precioMinimo) params.minPrice = filtros.precioMinimo;
-    if (filtros.precioMaximo) params.maxPrice = filtros.precioMaximo;
-
+    if (filtros.nombre) params.nombre = filtros.nombre;
+    if (filtros.direccion) params.direccion = filtros.direccion;
+    if (filtros.precioMinimo) params.precioMinimo = filtros.precioMinimo;
+    if (filtros.precioMaximo) params.precioMaximo = filtros.precioMaximo;
+    console.log(params);
     const respuesta = await axios.get(URL_BASE_API + '/Obtener', { params });
     return respuesta.data;
   } catch (error) {
@@ -37,4 +37,10 @@ export async function obtenerPropiedadPorId(id) {
   } catch (error) {
     throw error;
   }
+}
+
+export async function obtenerImagen(idPropiedad) {
+  const respuesta = await axios.get(`${URL_BASE_API}/${idPropiedad}`);
+  const data = await respuesta.json();
+  return data.url; // o el campo que devuelva la URL
 }
