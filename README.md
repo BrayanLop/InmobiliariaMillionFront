@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# Inmobiliaria Million - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es el repositorio del frontend para la aplicación de Inmobiliaria Million, una plataforma para buscar, filtrar y ver detalles de propiedades. La aplicación está construida con React y se conecta a un backend para obtener toda la información.
 
-## Available Scripts
+## Tecnologías Utilizadas
 
-In the project directory, you can run:
+*   **React:** Biblioteca principal para la construcción de la interfaz de usuario.
+*   **React Router:** Para la gestión de rutas y navegación entre páginas.
+*   **Axios:** Para realizar las peticiones HTTP al API del backend.
+*   **CSS Modules:** Para un estilo de componentes encapsulado y sin colisiones.
 
-### `npm start`
+## Prerrequisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
+*   [Node.js](https://nodejs.org/es/) (versión 16 o superior)
+*   [npm](https://www.npmjs.com/) (se instala automáticamente con Node.js)
+*   Tener el **backend del proyecto clonado y en ejecución**.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación y Configuración
 
-### `npm test`
+Sigue estos pasos para poner en marcha el proyecto en tu entorno local.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**1. Clona el repositorio:**
+```bash
+git clone <URL-del-repositorio>
+cd inmobiliariamillion
+```
 
-### `npm run build`
+**2. Instala las dependencias:**
+Ejecuta el siguiente comando para instalar todos los paquetes necesarios para el proyecto.
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**3. Configura la conexión con el API:**
+Este proyecto necesita saber la URL base de tu backend para poder hacer las consultas.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*   Crea un archivo llamado `.env` en la raíz del proyecto.
+*   Copia el siguiente contenido en el archivo `.env` y asegúrate de que la URL coincida con la de tu backend en ejecución.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```env
+# URL base del API del backend
+VITE_API_URL=https://localhost:7181
+```
+> **Nota:** Si tu proyecto no fue creado con Vite, es posible que la variable de entorno deba llamarse `REACT_APP_API_URL`.
 
-### `npm run eject`
+**4. Inicia el servidor de desarrollo:**
+Una vez instaladas las dependencias y configurada la URL del API, puedes iniciar la aplicación.
+```bash
+npm run dev
+```
+> Si usas Create React App, el comando podría ser `npm start`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+La aplicación debería abrirse automáticamente en tu navegador en una dirección como `http://localhost:5173` o `http://localhost:3000`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Estructura del Proyecto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+inmobiliariamillion/
+├── public/               # Archivos estáticos
+├── src/
+│   ├── api/              # Lógica para las llamadas al API (ej: propiedadservicio.js)
+│   ├── componentes/      # Componentes reutilizables (Layout, TarjetaPropiedad, Filtros)
+│   ├── hooks/            # Hooks personalizados (ej: useDebounce)
+│   ├── paginas/          # Componentes que representan páginas completas (Propiedades, Detalle)
+│   ├── App.jsx           # Componente principal y enrutador
+│   └── main.jsx          # Punto de entrada de la aplicación
+├── .env                  # (Debes crearlo) Variables de entorno
+├── package.json          # Dependencias y scripts del proyecto
+└── README.md             # Este archivo
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Con estas instrucciones, cualquier desarrollador podrá configurar y ejecutar tu proyecto frontend sin problemas.// filepath: c:\Users\braya\OneDrive\Escritorio\inmobiliariamillion\README.md
+# Inmobiliaria Million - Frontend
 
-## Learn More
+Este es el repositorio del frontend para la aplicación de Inmobiliaria Million, una plataforma para buscar, filtrar y ver detalles de propiedades. La aplicación está construida con React y se conecta a un backend para obtener toda la información.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tecnologías Utilizadas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+*   **React:** Biblioteca principal para la construcción de la interfaz de usuario.
+*   **React Router:** Para la gestión de rutas y navegación entre páginas.
+*   **Axios:** Para realizar las peticiones HTTP al API del backend.
+*   **CSS Modules:** Para un estilo de componentes encapsulado y sin colisiones.
 
-### Code Splitting
+## Prerrequisitos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
+*   [Node.js](https://nodejs.org/es/) (versión 16 o superior)
+*   [npm](https://www.npmjs.com/) (se instala automáticamente con Node.js)
+*   Tener el **backend del proyecto clonado y en ejecución**.
 
-### Analyzing the Bundle Size
+## Instalación y Configuración
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Sigue estos pasos para poner en marcha el proyecto en tu entorno local.
 
-### Making a Progressive Web App
+**1. Clona el repositorio:**
+```bash
+git clone <URL-del-repositorio>
+cd inmobiliariamillion
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**2. Instala las dependencias:**
+Ejecuta el siguiente comando para instalar todos los paquetes necesarios para el proyecto.
+```bash
+npm install
+```
 
-### Advanced Configuration
+**3. Configura la conexión con el API:**
+Este proyecto necesita saber la URL base de tu backend para poder hacer las consultas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+*   Crea un archivo llamado `.env` en la raíz del proyecto.
+*   Copia el siguiente contenido en el archivo `.env` y asegúrate de que la URL coincida con la de tu backend en ejecución.
 
-### Deployment
+```env
+# URL base del API del backend
+VITE_API_URL=https://localhost:7181
+```
+> **Nota:** Si tu proyecto no fue creado con Vite, es posible que la variable de entorno deba llamarse `REACT_APP_API_URL`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**4. Inicia el servidor de desarrollo:**
+Una vez instaladas las dependencias y configurada la URL del API, puedes iniciar la aplicación.
+```bash
+npm run dev
+```
+> Si usas Create React App, el comando podría ser `npm start`.
 
-### `npm run build` fails to minify
+La aplicación debería abrirse automáticamente en tu navegador en una dirección como `http://localhost:5173` o `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Estructura del Proyecto
+
+```
+inmobiliariamillion/
+├── public/               # Archivos estáticos
+├── src/
+│   ├── api/              # Lógica para las llamadas al API (ej: propiedadservicio.js)
+│   ├── componentes/      # Componentes reutilizables (Layout, TarjetaPropiedad, Filtros)
+│   ├── hooks/            # Hooks personalizados (ej: useDebounce)
+│   ├── paginas/          # Componentes que representan páginas completas (Propiedades, Detalle)
+│   ├── App.jsx           # Componente principal y enrutador
+│   └── main.jsx          # Punto de entrada de la aplicación
+├── .env                  # (Debes crearlo) Variables de entorno
+├── package.json          # Dependencias y scripts del proyecto
+└── README.md             # Este archivo
+```
