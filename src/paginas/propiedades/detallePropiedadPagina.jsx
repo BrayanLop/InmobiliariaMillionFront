@@ -36,41 +36,52 @@ function DetallePropiedadPagina() {
     <Layout>
       <div className={styles.contenedor}>
         <div className={styles.detallePropiedad}>
-          <img 
-            src={propiedad.imagen} 
-            alt={propiedad.nombre}
-            className={styles.imagenPrincipal}
-          />
-          <h1 className={styles.titulo}>{propiedad.nombre}</h1>
-          <div className={styles.ubicacion}>
-            <strong>Ubicación</strong>
-            <p>{propiedad.direccion}</p>
-          </div>
-          <div className={styles.precio}>
-            {propiedad.precio 
-              ? `US$ ${propiedad.precio.toLocaleString()}`
-              : 'Precio no disponible'}
-          </div>
-          <div className={styles.infoGrid}>
-            <div className={styles.infoItem}>
-              <span>Código de Propiedad</span>
-              <strong>{propiedad.codigoInterno}</strong>
-            </div>
-            <div className={styles.infoItem}>
-              <span>Año de Construcción</span>
-              <strong>{propiedad.anio}</strong>
+
+          {/* --- COLUMNA IZQUIERDA: IMAGEN Y BOTONES --- */}
+          <div className={styles.columnaImagen}>
+            <img 
+              src={propiedad.imagen} 
+              alt={propiedad.nombre}
+              className={styles.imagenPrincipal}
+            />
+            {/* BOTONES MOVIDOS AQUÍ */}
+            <div className={styles.botones}>
+              <button className={styles.botonPrimario}>Contactar agente</button>
+              <button className={styles.botonSecundario}>Agendar visita</button>
             </div>
           </div>
-          <div className={styles.caracteristicasGrid}>
-            <div className={styles.caracteristica}>3 Habitaciones</div>
-            <div className={styles.caracteristica}>2 Baños</div>
-            <div className={styles.caracteristica}>120 m²</div>
-            <div className={styles.caracteristica}>Parqueadero</div>
+
+          {/* --- COLUMNA DERECHA: INFORMACIÓN --- */}
+          <div className={styles.columnaInfo}>
+            <h1 className={styles.titulo}>{propiedad.nombre}</h1>
+            <p className={styles.ubicacion}>{propiedad.direccion}</p>
+            <p className={styles.precio}>
+              {propiedad.precio 
+                ? `US$ ${propiedad.precio.toLocaleString()}`
+                : 'Precio no disponible'}
+            </p>
+
+            <div className={styles.caracteristicasGrid}>
+              <div className={styles.caracteristica}><strong>3</strong> Habitaciones</div>
+              <div className={styles.caracteristica}><strong>2</strong> Baños</div>
+              <div className={styles.caracteristica}><strong>120 m²</strong> Área</div>
+              <div className={styles.caracteristica}><strong>Sí</strong> Parqueadero</div>
+            </div>
+
+            <div className={styles.infoGrid}>
+              <div className={styles.infoItem}>
+                <span>Código de Propiedad</span>
+                <strong>{propiedad.codigoInterno}</strong>
+              </div>
+              <div className={styles.infoItem}>
+                <span>Año de Construcción</span>
+                <strong>{propiedad.anio}</strong>
+              </div>
+            </div>
+
+            {/* EL DIV DE BOTONES SE ELIMINA DE AQUÍ */}
           </div>
-          <div className={styles.botones}>
-            <button className={styles.botonPrimario}>Contactar agente</button>
-            <button className={styles.botonSecundario}>Agendar visita</button>
-          </div>
+
         </div>
       </div>
     </Layout>

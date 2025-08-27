@@ -1,127 +1,130 @@
 .contenedor {
-  max-width: 1000;
-  margin: 2rem auto;
-  padding: 0 1rem;
+  width: 100%;
+  padding: 2rem 1rem;
 }
 
 .detallePropiedad {
-  max-width: 900px;      /* Aumenta el ancho máximo */
-  width: 100%;
-  margin: 2rem auto;
+  display: flex;
+  flex-direction: row; /* <-- CLAVE: Lado a lado */
+  align-items: flex-start;
+  gap: 2.5rem;
+  max-width: 950px;
+  margin: 0 auto;
   background: #fff;
   border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  padding: 2rem 2rem 1.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem;
+}
+
+.columnaImagen {
+  flex: 1;
+  min-width: 320px;
+  display: flex; /* Añadido */
+  flex-direction: column; /* Añadido */
 }
 
 .imagenPrincipal {
   width: 100%;
-  height: 220px;         /* Menos alto */
+  height: auto;
+  aspect-ratio: 4 / 3; /* Mantiene la proporción de la imagen */
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 1.2rem;
+}
+
+.columnaInfo {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espaciado vertical consistente */
 }
 
 .titulo {
-  color: #0077b6;
-  font-size: 1.5rem;
-  margin: 0 0 0.5rem 0;
-  padding: 0;
+  font-size: 2.2rem;
+  margin: 0;
+  color: #005f73;
 }
 
 .ubicacion {
-  padding: 0;
-  margin-bottom: 1rem;
-}
-
-.ubicacion strong {
-  display: block;
-  color: #333;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.ubicacion p {
-  margin: 0.25rem 0 0 0;
-  color: #666;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0;
 }
 
 .precio {
-  color: #00a651;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 1rem 0;
-  padding: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #009e60;
+  margin: 0;
+}
+
+.caracteristicasGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  width: 100%;
+}
+
+.caracteristica {
+  text-align: left; /* <-- CAMBIADO: Alinear a la izquierda */
+  font-size: 0.9rem;
+  color: #555;
+}
+.caracteristica strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #333;
 }
 
 .infoGrid {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  background: #f7f7f7;
-  border-radius: 8px;
-  padding: 0.7rem 1.2rem;
-  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee; /* Unificar estilo con borde */
   width: 100%;
+  /* Se quita el background para un look más limpio */
 }
 
 .infoItem {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 120px;
 }
-
-.infoLabel {
-  color: #666;
-  font-size: 0.8rem;
-  margin-bottom: 0.25rem;
-  display: block;
-}
-
-.infoValue {
-  color: #333;
-  font-weight: 500;
+.infoItem span {
   font-size: 0.9rem;
+  color: #666;
+}
+.infoItem strong {
+  font-size: 1.1rem;
+  color: #333;
 }
 
-.caracteristicasGrid {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 1.2rem;
-  width: 100%;
-}
-
-.caracteristica {
-  text-align: center;
-  min-width: 100px;
-  color: #555;
-  font-size: 1rem;
-}
-
+/* --- ESTILOS PARA BOTONES SIMÉTRICOS --- */
 .botones {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  width: 100%;
+  margin-top: 1.5rem;
 }
 
 .botonPrimario, .botonSecundario {
-  padding: 0.7rem 2rem;
+  display: flex; /* Para centrar contenido */
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1rem;
   font-size: 1rem;
   border-radius: 6px;
-  border: none;
   cursor: pointer;
+  text-align: center;
+  width: 100%;
+  min-height: 50px; /* Altura mínima para simetría */
 }
 
 .botonPrimario {
   background: #0077b6;
   color: #fff;
+  border: 1px solid #0077b6;
 }
 
 .botonSecundario {
@@ -130,9 +133,66 @@
   border: 1px solid #0077b6;
 }
 
-.idPropiedad {
-  color: #999;
-  font-size: 0.75rem;
-  margin-top: 1rem;
-  text-align: center;
+/* --- ESTILOS RESPONSIVE --- */
+
+/* Para tablets y pantallas medianas (menos de 950px) */
+@media (max-width: 950px) {
+  .detallePropiedad {
+    flex-direction: column; /* Cambia a una sola columna */
+    align-items: center; /* Centra el contenido que ahora está en columna */
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .columnaImagen, .columnaInfo {
+    width: 100%; /* Ambas columnas ocupan todo el ancho */
+    max-width: 600px; /* Un ancho máximo para que no se estire demasiado en tablets */
+  }
+}
+
+/* Para móviles (menos de 600px) */
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 1rem 0.5rem;
+  }
+
+  .detallePropiedad {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .titulo {
+    font-size: 1.8rem; /* Reduce el tamaño del título */
+  }
+
+  .precio {
+    font-size: 1.6rem; /* Reduce el tamaño del precio */
+  }
+
+  .caracteristicasGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 características por fila */
+    gap: 1.5rem;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr; /* 1 item por fila para más claridad */
+    gap: 1rem;
+  }
+
+  .botones {
+    grid-template-columns: 1fr; /* Un botón por fila para que no queden apretados */
+  }
+}
+
+/* --- AJUSTE FINO PARA MÓVILES MUY ESTRECHOS --- */
+@media (max-width: 360px) {
+  .botones {
+    gap: 0.75rem; /* Menos espacio entre botones */
+  }
+
+  .botonPrimario, .botonSecundario {
+    font-size: 0.9rem;      /* Reducir la fuente */
+    padding: 0.6rem 0.5rem; /* Reducir drásticamente el padding vertical */
+    min-height: unset;      /* QUITAR la altura mínima para que se ajuste al texto */
+  }
 }
