@@ -1,6 +1,6 @@
 import React from 'react';
 import TarjetaPropiedad from './TarjetaPropiedad.jsx';
-import styles from './ListaPropiedad.modulo.css';
+import styles from './ListaPropiedad.module.css';
 
 /**
  * Componente que muestra la lista de propiedades.
@@ -23,7 +23,7 @@ function ListaPropiedad({ propiedades, cargando, error }) {
   }
 
   return (
-    <div className={styles.lista}>
+    <div className={styles.listaPropiedad}>
       {propiedades.map(propiedad => (
         <TarjetaPropiedad key={propiedad.id} propiedad={propiedad} />
       ))}

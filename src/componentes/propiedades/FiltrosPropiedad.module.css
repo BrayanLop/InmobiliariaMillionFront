@@ -1,0 +1,38 @@
+.filtrosContainer {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 0rem;
+  text-align: center;
+}
+
+.titulo {
+  color: #0077b6;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.subtitulo {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.filtrosGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 1200px) {
+  .filtrosGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .filtrosGrid {
+    grid-template-columns: 1fr;
+  }
+}

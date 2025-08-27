@@ -4,7 +4,7 @@ import styles from './TarjetaPropiedad.module.css';
 
 function TarjetaPropiedad({ propiedad }) {
   return (
-    <Link to={`/property/${propiedad.idPropiedad}`} className={styles.card}>
+    <Link to={`/propiedad/${propiedad.idPropiedad}`} className={styles.card}>
       <img
         src="#"
         alt={propiedad.nombre}

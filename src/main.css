@@ -10,4 +10,17 @@
     font-size: 0.85rem;
     padding: 0.7rem 0;
   }
+  /* Puedes poner esto en el CSS de la página principal */
+.contenedor-simetrico {
+  width: 836px; /* O el ancho que tiene tu grid de tarjetas */
+  max-width: 100%;
+  margin: 0 auto;
+}
+.filtrosGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+  justify-items: center;  /* Centra los elementos */  
+}
 }

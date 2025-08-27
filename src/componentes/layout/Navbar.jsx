@@ -5,12 +5,9 @@ import styles from './Navbar.module.css';
 function Navbar() {
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>
-        <Link to="/">InmobiliariaMillion</Link>
-      </div>
-      <div className={styles.links}>
-        <Link to="/">Inicio</Link>
-      </div>
+      <Link to="/" className={styles.brand}>
+        InmobiliariaMillion
+      </Link>
     </nav>
   );
 }

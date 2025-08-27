@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import FiltroPropiedad from '../componentes/propiedades/FiltrosPropiedad';
-import ListaPropiedad from '../componentes/propiedades/ListaPropiedad';
-import useDebounce from '../hooks/useDebounce';
-import { obtenerPropiedades } from '../api/propiedadservicio';
-import Layout from '../componentes/layout/Layout';
+import FiltroPropiedad from '../../componentes/propiedades/FiltrosPropiedad';
+import ListaPropiedad from '../../componentes/propiedades/ListaPropiedad';
+import useDebounce from '../../hooks/useDebounce';
+import { obtenerPropiedades } from '../../api/propiedadservicio';
+import Layout from '../../componentes/layout/Layout';
 
 function PropiedadesPagina() {
   const [filtros, setFiltros] = useState({});
@@ -32,7 +32,7 @@ function PropiedadesPagina() {
   return (
     <Layout>
       <section style={{
-        maxWidth: '900px',
+        maxWidth: '2100px',
         margin: '2rem auto',
         background: '#fff',
         borderRadius: '12px',
@@ -55,10 +55,12 @@ function PropiedadesPagina() {
         }}>
           Filtra por nombre, dirección o rango de precios y descubre las mejores opciones para ti.
         </p>
-        <div style={{ marginBottom: '2rem' }}>
-          <FiltroPropiedad valores={filtros} onCambio={setFiltros} />
+        <div className="contenedor-simetrico">
+          <div style={{ marginBottom: '2rem' }}>
+            <FiltroPropiedad valores={filtros} onChange={setFiltros} />
+          </div>
+          <ListaPropiedad propiedades={propiedades} cargando={cargando} error={error} />
         </div>
-        <ListaPropiedad propiedades={propiedades} cargando={cargando} error={error} />
       </section>
     </Layout>
   );

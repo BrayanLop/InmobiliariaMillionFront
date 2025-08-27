@@ -4,7 +4,8 @@ import styles from './Footer.module.css';
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <p>© {new Date().getFullYear()} InmobiliariaMillion. Todos los derechos reservados.</p>
+      <span>© {new Date().getFullYear()} InmobiliariaMillion. </span>
+      <small>Todos los derechos reservados.</small>
     </footer>
   );
 }
